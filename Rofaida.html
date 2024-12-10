@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Date Invitation!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FFDDC1, #FFABAB);
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            color: #FF6F61;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 1.5em;
+        }
+        .btn {
+            background: #FF6F61;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 1em;
+            font-size: 1.5em;
+            color: #333;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .no-btn {
+            position: relative;
+            background: #bbb;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1em;
+            transition: transform 0.2s, left 0.3s;
+        }
+        .cat-message {
+            display: none;
+            margin-top: 1em;
+            font-size: 1.5em;
+            color: #FF6F61;
+        }
+        #yesBtn, #noBtn {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey Rofaida!</h1>
+        <p>Are you ready for a fun little adventure? 🎉</p>
+        <button class="btn" onclick="revealButtonsAndMessage()">Click me to find out!</button>
+        <p id="hiddenMessage" class="hidden-message">Surprise! Let’s go out this weekend for a playful date. 🥳✨</p>
+        <button class="btn" id="yesBtn" onclick="showCatMessage()">Yes</button>
+        <button class="no-btn" id="noBtn" onmouseover="moveButton()">No</button>
+        <p id="catMessage" class="cat-message">🐱 Good girl!</p>
+    </div>
+
+    <script>
+        function revealButtonsAndMessage() {
+            document.getElementById('hiddenMessage').style.display = 'block';
+            document.getElementById('yesBtn').style.display = 'inline-block';
+            document.getElementById('noBtn').style.display = 'inline-block';
+        }
+
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const randomX = Math.random() * 200 - 100; // Generate random X movement
+            const randomY = Math.random() * 200 - 100; // Generate random Y movement
+            noBtn.style.position = 'relative';
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        }
+
+        function showCatMessage() {
+            document.getElementById('catMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
